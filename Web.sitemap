@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title="交易狗"  description="">
+    <siteMapNode url="~/Home.aspx" title="首页"  description="" />
+    <siteMapNode url="~/Game.aspx" title="游戏"  description="" >
+      <siteMapNode url="~/Games.aspx" title="游戏详情"  description="" />
+    </siteMapNode>
+    <siteMapNode url="~/SubTraining.aspx" title="代练"  description="" />
+    <siteMapNode url="~/PersonalCenter.aspx" title="个人中心"  description="" >
+      <siteMapNode url="~/Personal_Info.aspx" title="个人信息管理"  description=""/>
+      <siteMapNode url="" title="钱包"  description="" />
+      <siteMapNode url="~/Buyer_Main.aspx" title="我是买家"  description="">
+        <siteMapNode url="" title="我的订单"  description="" />
+        <siteMapNode url="" title="我的售后"  description="" />
+        <siteMapNode url="" title="足迹"  description="" />
+      </siteMapNode>
+      <siteMapNode url="~/Saler_Main.aspx" title="我是卖家"  description="">
+        <siteMapNode url="~/Polish.aspx" title="商品管理"  description="" />
+        <siteMapNode url="~/SHCL.aspx" title="售后管理"  description="" />
+      </siteMapNode>
+      <siteMapNode url="" title="我是代练"  description="">
+        <siteMapNode url="" title="商品管理"  description="" />
+        <siteMapNode url="" title="售后管理"  description="" />
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode url="~/About.aspx" title="关于"  description="" />
+    <siteMapNode url="" title=""  description="" />
+    <siteMapNode url="~/Main_SYS.aspx" title="管理平台"  description="">
+      <siteMapNode url="~/AddGame.aspx" title="游戏管理"  description="" />
+      <siteMapNode url="~/DelAdmin.aspx" title="权限管理"  description="" />
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

@@ -1,0 +1,236 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="test.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="zh">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - 争做一个合格的游戏账号交易平台</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <style type='text/css'>
+        .contactform ul {
+            list-style: none;
+        }
+
+        .contactform li {
+            float: left;
+        }
+
+        #iframe_game {
+            border: 0px;
+        }
+
+        .user-link {
+            float: right;
+        }
+
+        .aaa {
+            color: #333;
+        }
+
+        .download-app {
+            display: inline-block;
+            height: 20px;
+            line-height: 20px;
+        }
+
+        .show {
+            display: block !important;
+        }
+
+        .hidden {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        .invisible {
+            visibility: hidden;
+        }
+
+        .forlunbo {
+            width: 750px; /*这里600x400是图片的宽高*/
+            height: 280px;
+            overflow: hidden; /*隐藏溢出的图片，因为图片左浮动，总宽度为4200*/
+            position: relative;
+        }
+
+        .element {
+            .show();
+        }
+
+        .another-element {
+            .hidden();
+        }
+
+        .row {
+            margin: 2px 0;
+        }
+
+        .text {
+            display: block;
+            display: -webkit-box;
+            max-width: 400px;
+            height: 50px;
+            margin: 0 auto;
+            line-height: 1.2;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        } 
+    </style>
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <header>
+            <div class="container">
+                <table class="user-link">
+                    <tr>
+                    <td>您好，<a id="pc"><asp:Label ID="Label2" runat="server" Text=""></asp:Label></a>欢迎来到交易狗！</td>
+                    <td><span class="space">|</span></td>
+                    <td><button type="button" class="btn btn-link aaa show" data-toggle="modal" data-target="#myModal" id="signin" runat="server">
+                        <asp:Label ID="Label1" runat="server" Text="登录"></asp:Label></button></td>
+                    <td><span class="space">|</span><a rel="nofollow" href="Main_SYS.aspx" class="aaa">SYS</a></td>
+                    <td><span class="space">|</span><a rel="nofollow" href="Saler_Main.aspx" class="aaa">我是卖家</a></td>
+                        </tr>
+                </table>
+            </div>
+            <!--模态登录框-->
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+                            <h4 class="modal-title" style="text-align: center">交易狗 </h4>
+                            <div class="form-horizontal" role="form" id="form2">
+                                <div class="form-group">
+                                    <label for="name" class="col-sm-offset-2 col-sm-2 control-label">账号</label>
+                                    <div class="col-sm-5">
+                                        <asp:TextBox runat="server" CssClass="form-control" ID="name" placeholder="请输您的入账号"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="col-sm-offset-2 col-sm-2 control-label">密码</label>
+                                    <div class="col-sm-5">
+                                        <asp:TextBox runat="server" CssClass="form-control" ID="password" TextMode="Password"></asp:TextBox>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2 control-label"></div>
+
+                                    <div class="col-sm-5">
+                                        <a id="forget" runat="server" href="Forget.aspx">忘记密码</a>
+                                        <span class="space">|</span>
+                                        <a id="register" runat="server" href="Register.aspx">注册</a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-4 col-sm-5">
+                                        <asp:Button runat="server" ID="Button1" CssClass="btn btn-default btn-block btn-primary" OnClick="submitBtn_Click" Text="Login"></asp:Button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+            <!-- 去掉了nav fix top 属性-->
+            <div class="navbar navbar-inverse" >
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" runat="server" href="Home.aspx">交易狗</a>
+                    </div>
+                    <div class="navbar-collapse collapse" style="text-align:center; float:none;">
+                        <ul class="nav navbar-nav" style="display: inline-block;float: none;">
+                            <li><a runat="server" href="Home.aspx">主页</a></li>
+                            <li><a runat="server" href="Game.aspx">游戏专区</a></li>
+                            <li><a runat="server" href="SubTraining.aspx">代练</a></li>
+                            <li><a runat="server" href="PersonalCenter.aspx">个人中心</a></li>
+                            <li><a runat="server" href="About.aspx">关于</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+        <div class="container body-content">            
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+
+        </div>
+        <hr />
+        <footer>
+            <p>&copy; <%: DateTime.Now.Year %> - 游戏账号管理系统 - 袁一静 - 68 - 20171115030</p>
+        </footer>
+
+    </form>
+    <script lang="javascript">
+        //点击用户名进入个人中心
+        function a() {
+            var user = Session["userName"].toString();
+            $('#pc').click(function () {
+                if (user != "") {
+                    window.location.href = "PersonalCenter.aspx";
+                }
+            });
+            
+        }
+        document.getElementById("cb1") = function () {
+            if ($('#cb1').is(':checked') == true) {
+                $('#order').show();
+            }
+            if ($('#cb1').is(':checked') == false) {
+                $('#order').hide();
+            }
+        };
+        
+    </script>
+
+</body>
+</html>
